@@ -1,6 +1,5 @@
-import React,{ DetailedHTMLProps, InputHTMLAttributes, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React,{ useState } from 'react'
+
 import TodoItem from './components/TodoItem'
 import { Todo } from './types'
 import styled from 'styled-components'
@@ -11,7 +10,7 @@ function App() {
 	const [title,setTitle] = useState<string>("")
 	
 	const addTodo = ():void =>{
-		
+
 		if (title.trim().length){
 			setTodos(
 				[...todos,
@@ -29,7 +28,7 @@ function App() {
 	const toggleCompleted = (id:number) => {
 		const itemIndex:number = todos.findIndex(item => item.id === id)
 		let item: Todo | undefined = todos.find(item => item.id === id)
-		
+
 		if (itemIndex !== -1 && item){
 			let tempItems = [...todos]
 			item.isCompleted = !item.isCompleted
